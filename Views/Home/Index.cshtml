@@ -1,0 +1,34 @@
+﻿@using VeriTasiyicilar.Models
+@model Kullanici
+@{
+    ViewBag.Title = "Index";
+}
+
+<nav class="nav nav-pills nav-justified">
+    <a class="nav-item nav-link active" href="#">@((ViewBag.AdSoyad as Kullanici).AdSoyad)</a>
+    <a class="nav-item nav-link" href="#">|  @ViewData["Username"] </a>
+    <a class="nav-item nav-link" href="#">| @((ViewData["dict"] as Dictionary<int, string>))  </a>
+    <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">  </a>
+</nav>
+
+
+<h2>Index</h2>
+
+<a href="/Home/Sepet"> Sepete Git</a>
+<br />
+<a href="/Home/SatınAl"> Satın Al</a>
+
+
+<div class="alert alert-info">@ViewBag.Aciklama</div>
+<div class="alert alert-warning">@ViewBag.SistemSaati</div>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr><td>Id</td><td>@Model.Id</td></tr>
+        <tr><td>Ad Soyad</td><td>@Model.AdSoyad</td></tr>
+        <tr><td>Email</td><td>@Model.Email</td></tr>
+        <tr><td>Telefon</td><td>@Model.Telefon</td></tr>
+        <tr><td>Doğum Tarihi</td><td>@Model.DogumTarihi.ToShortDateString()</td></tr>
+        <tr><td>Boy</td><td>@Model.Boy</td></tr>
+    </tbody>
+</table>
